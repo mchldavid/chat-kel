@@ -83,6 +83,7 @@ button{
   border-radius: $radius;
   transition: all .3s;
   background-color: none;
+  cursor: pointer;
 }
 
 button:hover{

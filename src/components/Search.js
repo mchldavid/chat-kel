@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react"
 
 const Search = () => {
-  return (
-    <div>
-      Search
-    </div>
-  );
-};
+  return <div className="search card">Search</div>
+}
 
-export default Search;
+export default Search
