@@ -19,6 +19,7 @@ body{
   box-sizing: border-box;
   font-weight: 500;
   color: $text-default-color;
+  background-color: $bg-color-2;
 }
 
 h1 {
@@ -51,9 +52,9 @@ input{
 }
 
 input{
-  padding: 10px 10px;
+  padding: 10px 15px;
   border: 1px solid $gray-0;
-  border-radius: $border-radius;
+  border-radius: $radius;
   transition: all .3s;
   margin-bottom: 10px;
 }
@@ -79,7 +80,7 @@ button{
   padding: 15px 15px;
   color: $color-1;
   border: 1px solid $color-1;
-  border-radius: $border-radius;
+  border-radius: $radius;
   transition: all .3s;
   background-color: none;
 }
@@ -118,4 +119,10 @@ a:hover{
 //label
 label{
   margin-bottom:5px;
+}
+
+.card{
+  padding: 15px;
+  border-radius: $radius-card;
+  background-color: $bg-color-1;
 }
