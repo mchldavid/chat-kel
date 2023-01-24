@@ -51,10 +51,11 @@ input{
 }
 
 input{
-  padding: 5px 10px;
+  padding: 10px 10px;
   border: 1px solid $gray-0;
   border-radius: $border-radius;
   transition: all .3s;
+  margin-bottom: 10px;
 }
 
 input:focus{
@@ -75,7 +76,7 @@ button{
 
 button{
   text-align: center;
-  padding: 10px 15px;
+  padding: 15px 15px;
   color: $color-1;
   border: 1px solid $color-1;
   border-radius: $border-radius;
@@ -112,4 +113,9 @@ a{
 a:hover{
   color: $color-0;
   text-decoration: underline;
+}
+
+//label
+label{
+  margin-bottom:5px;
 }

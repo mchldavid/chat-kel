@@ -11,21 +11,21 @@ const Register = () => {
         </div>
         <form>
           <div>
-            <label for="name">Name:</label>
+            <label for="name">Name</label>
             <input
               id="name"
               type="text"
               placeholder="Enter your name"
               required
             />
-            <label for="email">Email:</label>
+            <label for="email">Email</label>
             <input
               id="email"
               type="email"
               placeholder="Enter your email"
               required
             />
-            <label for="pass">Password:</label>
+            <label for="pass">Password</label>
             <input
               id="pass"
               type="password"
