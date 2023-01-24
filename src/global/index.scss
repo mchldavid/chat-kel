@@ -1,1 +1,115 @@
 @use "./resetcss";
+@use "../abstract/" as *;
+
+//google fonts
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+// Font Variables
+$public-sans: 'Public Sans', sans-serif;
+$roboto: "Roboto", sans-serif;
+
+body{
+  font-family: $public-sans;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  min-height: 100vh;
+  border: 1px solid red;
+  padding: 100px 30px;
+  box-sizing: border-box;
+  font-weight: 500;
+  color: $text-default-color;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 0.8em;
+}
+
+h6 {
+  font-size: 0.7em;
+}
+
+//INPUT CSS
+input{
+  all: unset;
+}
+
+input{
+  padding: 5px 10px;
+  border: 1px solid $gray-0;
+  border-radius: $border-radius;
+  transition: all .3s;
+}
+
+input:focus{
+  border-color: $color-1;
+  border-width: 1px;
+}
+
+::placeholder{
+  color: $gray-0;
+  font-weight: 300;
+}
+
+
+// BUTTON CSS
+button{
+  all: unset;
+}
+
+button{
+  text-align: center;
+  padding: 10px 15px;
+  color: $color-1;
+  border: 1px solid $color-1;
+  border-radius: $border-radius;
+  transition: all .3s;
+  background-color: none;
+}
+
+button:hover{
+  color: white;
+  background-color: $color-1;
+}
+
+.button-primary{
+  background-color: $color-1;
+  color: white;
+}
+
+.button-primary:hover{
+  background-color: $color-0;
+  border-color: $color-0;
+}
+
+// anchor
+a{
+  all: unset;
+}
+
+a{
+  color: $text-primary-color;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+a:hover{
+  color: $color-0;
+  text-decoration: underline;
+}

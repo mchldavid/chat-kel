@@ -1,0 +1,71 @@
+@use "../../abstract/" as *;
+
+.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+
+  .wrapper {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+
+    .title {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 15px;
+      font-weight: 700;
+      color: $text-primary-color;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+
+      .upload-button{
+        margin-top: 10px;
+        transition: all .3s;
+      }
+
+      .upload-button:hover{
+        color: $color-0;
+      }
+
+      & label {
+        display: flex;
+        align-items: center;
+        color: $text-primary-color;
+        font-size: 15px;
+        transition: all .3s;
+
+        svg {
+          color: inherit;
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      div label {
+        font-size: 13px;
+        margin-bottom: 5px;
+
+      }
+      div input{
+        width: 100%;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+
+      button{
+        margin-top: 20px;
+      }
+    }
+
+    span {
+      text-align: center;
+      width: 100%;
+      font-size: small;
+      color: $text-default-color;
+    }
+  }
+}
