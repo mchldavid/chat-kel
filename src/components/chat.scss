@@ -1,5 +1,29 @@
+@use "../abstract/" as *;
+
 .chat {
   height: 100%;
   width: 100%;
-  border: 1px solid blue;
+  padding: 0px !important;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  .chat-header {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $color-1;
+    color: white;
+    font-weight: 500;
+    height: 70px;
+
+    // box-shadow: 0px -10px 19px 8px rgba(0, 0, 0, 0.36);
+    // -webkit-box-shadow: 0px -10px 19px 8px rgba(0, 0, 0, 0.36);
+    // -moz-box-shadow: 0px -10px 19px 8px rgba(0, 0, 0, 0.36);
+
+    box-shadow: 0px -15px 19px 8px rgba(0, 0, 0, 0.36);
+    -webkit-box-shadow: 0px -15px 19px 8px rgba(0, 0, 0, 0.36);
+    -moz-box-shadow: 0px -15px 19px 8px rgba(0, 0, 0, 0.36);
+  }
 }
