@@ -9,14 +9,14 @@ const Login = () => {
           <h1>Welcome to ChatKel</h1>
         </div>
         <form>
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <input
             id="email"
             type="email"
             placeholder="Enter your email"
             required
           />
-          <label for="pass">Password</label>
+          <label htmlFor="pass">Password</label>
           <input
             id="pass"
             type="password"

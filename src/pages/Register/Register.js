@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { BiImageAdd } from "react-icons/bi"
 import "./register.scss"
+import { useNavigate } from "react-router-dom"
 
 //firebase
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
@@ -10,6 +11,7 @@ import { doc, setDoc } from "firebase/firestore"
 
 const Register = () => {
   const [err, setErr] = useState({ isError: false, message: "" })
+  const navigate = useNavigate()
 
   const handleRegister = async (e) => {
     e.preventDefault()
@@ -41,6 +43,9 @@ const Register = () => {
             email,
             photoURL: downloadURL,
           })
+
+          await setDoc(doc(db, "userFriends", rspns.user.uid), {})
+          navigate("/")
         })
       })
     } catch (error) {
