@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import "./login.scss"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 //firebase
 import { signInWithEmailAndPassword } from "firebase/auth"
@@ -52,7 +52,7 @@ const Login = () => {
         </form>
         {err.isError && <span>{err.message}</span>}
         <span>
-          You don't have an account? <a href="/register">Register</a>
+          You don't have an account? <Link to="/register">Register</Link>
         </span>
       </div>
     </div>

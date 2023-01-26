@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { BiImageAdd } from "react-icons/bi"
 import "./register.scss"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 //firebase
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
@@ -96,7 +96,7 @@ const Register = () => {
         </form>
         {err.isError && <span>{err.message}</span>}
         <span>
-          Already have an account? <a href="/login">Login</a>
+          Already have an account? <Link to="/login">Login</Link>
         </span>
       </div>
     </div>
