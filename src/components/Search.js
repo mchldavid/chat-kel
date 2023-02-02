@@ -58,7 +58,7 @@ const Search = () => {
         },
         [combinedId + ".date"]: serverTimestamp(),
       })
-      await updateDoc(doc(db, "userFriends", currentUser.uid), {
+      await updateDoc(doc(db, "userFriends", queryResults.uid), {
         [combinedId + ".userInfo"]: {
           uid: currentUser.uid,
           displayName: currentUser.displayName,
