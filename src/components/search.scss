@@ -1,22 +1,81 @@
 @use "../abstract/" as *;
 
-
-.search{
+.search {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
+  transition: all 0.3s;
+  height: 12%;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 
-  svg{
-    color: $gray-0;
-    margin-right: -14px;
-    width: 20px;
-    height: 20px;
+  .search-container {
+    display: flex;
+    align-items: center;
+    padding-inline: 20px;
+
+    svg {
+      color: $gray-0;
+      margin-right: -14px;
+      width: 20px;
+      height: 20px;
+    }
+
+    input {
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-radius: 0;
+      margin: unset;
+    }
   }
 
-  input{
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-radius: 0;
-    margin: unset;
+  .results {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    margin-top: 10px;
+    transition: all 0.3s;
+    gap: 10px;
+    
+
+    .title {
+      color: $gray-0;
+      font-weight: 200;
+      font-size: 12px;
+      padding-inline: 20px;
+    }
+
+    .user{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      padding-inline: 20px;
+      padding-block: 5px;
+      transition: all .3s;
+
+      .user-info{
+        display: flex;
+        flex-direction: column;
+
+        .email{
+          font-size: 12px;
+          color: $gray-1 !important;
+        }
+      }
+    }
+
+    .user:hover{
+      background-color: $gray-0;
+    }
+  }
+}
+
+.search:has(input:focus-visible) {
+  height: 100%;
+
+  .results {
+    height: 100%;
   }
 }

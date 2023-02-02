@@ -1,5 +1,6 @@
 @use "./resetcss";
 @use "../abstract/" as *;
+@use "./userdetails";
 
 //google fonts
 @import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
@@ -126,4 +127,5 @@ label{
   padding: 15px 20px;
   border-radius: $radius-card;
   background-color: $bg-color-1;
+  transition: all .3s;
 }
