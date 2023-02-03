@@ -4,9 +4,11 @@ import { db } from "../firebase/initializeFirebase"
 import "./userchatfriends.scss"
 import { AuthContext } from "../context/AuthContext"
 import { displayChatTime } from "../function/displayChatTime"
+import { ChatContext } from "../context/ChatContext"
 
 const UserChatFriends = () => {
   const { currentUser } = useContext(AuthContext)
+  const { dispatch } = useContext(ChatContext)
   const [friends, setFriends] = useState([])
 
   useEffect(() => {
@@ -23,13 +25,21 @@ const UserChatFriends = () => {
       }
     }
 
-    return currentUser.uid && getFriends()
+    currentUser.uid && getFriends()
   }, [currentUser.uid])
+
+  const handleSelect = (u) => {
+    dispatch({ type: "CHANGE_USER", payload: u })
+  }
 
   return (
     <div className="user-chat-friends card">
       {Object.entries(friends)?.map((friend) => (
-        <div className="user-chat-details" key={friend[0]}>
+        <div
+          className="user-chat-details"
+          key={friend[0]}
+          onClick={() => handleSelect(friend[1].userInfo)}
+        >
           <div className="profile-picture">
             <img src={friend[1].userInfo.photoURL} alt="" />
           </div>
