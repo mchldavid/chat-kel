@@ -6,14 +6,28 @@ import Send from "./Send"
 import { ChatContext } from "../context/ChatContext"
 
 const Chat = () => {
-  const { data } = useContext(ChatContext)
+  const { data, dispatch } = useContext(ChatContext)
+
+  const handleCloseChat = () => {
+    dispatch({ type: "CLEAR_USER"})
+  }
 
   return (
     <div className="chat card">
       <div className="chat-header">
-        <div className="username">{data.user?.displayName}</div>
+        <div className="user-info">
+          {data.chatId !== "null" && (
+            <>
+              <div className="profile-picture">
+                <img src={data.user?.photoURL} alt="" />
+              </div>
+              <div className="username">{data.user?.displayName}</div>
+            </>
+          )}
+        </div>
+
         <div className="others">
-          <div className="button-icons">
+          <div className="button-icons" onClick={handleCloseChat}>
             <BsThreeDotsVertical />
           </div>
         </div>

@@ -8,6 +8,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
 import { auth, storage, db } from "../../firebase/initializeFirebase"
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"
 import { doc, setDoc } from "firebase/firestore"
+import {v4 as uuid} from "uuid"
 
 const Register = () => {
   const [err, setErr] = useState({ isError: false, message: "" })
@@ -25,7 +26,7 @@ const Register = () => {
       const rspns = await createUserWithEmailAndPassword(auth, email, password)
 
       //upload image
-      const storageRef = ref(storage, displayName)
+      const storageRef = ref(storage, displayName+uuid())
 
       const uploadTask = uploadBytesResumable(storageRef, file)
 

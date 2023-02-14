@@ -29,12 +29,13 @@ const UserChatFriends = () => {
   }, [currentUser.uid])
 
   const handleSelect = (u) => {
+    console.log("u", u)
     dispatch({ type: "CHANGE_USER", payload: u })
   }
 
   return (
     <div className="user-chat-friends card">
-      {Object.entries(friends)?.map((friend) => (
+      { Object.entries(friends)?.sort((a, b) =>b[1].date - a[1].date).map((friend) => (
         <div
           className="user-chat-details"
           key={friend[0]}
@@ -46,7 +47,7 @@ const UserChatFriends = () => {
 
           <div className="user-chat-info">
             <div className="username">{friend[1].userInfo.displayName}</div>
-            <p>no message...</p>
+            <p>{friend[1].lastMessage?.content}</p>
           </div>
           <div className="time">{displayChatTime(friend[1].date?.seconds)}</div>
         </div>

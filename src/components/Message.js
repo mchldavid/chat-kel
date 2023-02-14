@@ -1,19 +1,19 @@
-import React from "react"
+import React, {useContext} from "react"
+import { ChatContext } from "../context/ChatContext"
 import "./message.scss"
 
 const Message = (props) => {
+  const {data} = useContext(ChatContext)
+
   return (
-    <div className={"message " + props.isOwner}>
+    <div className={"message " + (props.isOwner && "owner")}>
       <div className="user-info">
-        <img src={window.location.origin + "/img/default-img.jpg"} alt="" />
+        {!props.isOwner && (
+          <img src={data.user.photoURL} alt="" />
+        )}
       </div>
       <div className="content">
-        <p>
-          Have a Good night to you. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-          ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
+        <p>{props.message}</p>
         {/* <img src={window.location.origin + "/img/default-img.jpg"} alt="" /> */}
       </div>
     </div>
