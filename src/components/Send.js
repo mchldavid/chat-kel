@@ -41,7 +41,8 @@ const Send = () => {
   }
 
   const handleSend = async () => {
-    if (file) {
+
+    if (file != null) {
       const storageRef = ref(storage, uuid())
 
       const uploadTask = uploadBytesResumable(storageRef, file)
@@ -51,7 +52,7 @@ const Send = () => {
           await updateDoc(doc(db, "chats", data.chatId), {
             messages: arrayUnion({
               id: uuid(),
-              text,
+              text: text,
               senderId: currentUser.uid,
               date: Timestamp.now(),
               file: downloadURL,
@@ -88,7 +89,15 @@ const Send = () => {
       />
       <div className="send-wrapper">
         <div className="file">
-          <input id="attacthment" type="file" style={{ display: "none" }} />
+          <input
+            id="attacthment"
+            type="file"
+            style={{ display: "none" }}
+            onChange={(e) => {
+              setFile(e.target.files[0])
+              console.log("uploaded")
+            }}
+          />
           <label htmlFor="attacthment">
             <MdAttachFile />
           </label>

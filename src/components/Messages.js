@@ -27,14 +27,9 @@ const Messages = () => {
   return (
     <div className="messages">
       {messages?.map((m) => (
-        <Message message={m.text} key={m.id} isOwner={m.senderId === currentUser.uid} />
+        <Message message={m.text} key={m.id} isOwner={m.senderId === currentUser.uid} file={m.file} />
       ))}
 
-      {/* 
-      <Message />
-      <Message isOwner={"owner"} />
-      <Message />
-      <Message isOwner={"owner"} /> */}
     </div>
   )
 }

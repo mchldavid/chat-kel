@@ -19,7 +19,6 @@ import { AuthContext } from "../context/AuthContext"
 const Search = () => {
   const [searchText, setSearchText] = useState("")
   const [queryResults, setQueryResults] = useState(null)
-  const [err, setErr] = useState(false)
   const { currentUser } = useContext(AuthContext)
 
   const handleSearch = async (text) => {
@@ -30,11 +29,13 @@ const Search = () => {
 
     const querySnapshot = await getDocs(q)
     querySnapshot.forEach((doc) => {
-      setQueryResults(doc.data())
+      //filter the login user
+      if (doc.data().uid !== currentUser.uid) setQueryResults(doc.data())
+      else setQueryResults(null)
     })
 
     //if empty sets to null queryresults
-    querySnapshot.empty && setQueryResults(null)
+    if (querySnapshot.empty) setQueryResults(null)
   }
 
   const handleSelectResult = async () => {

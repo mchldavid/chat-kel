@@ -13,9 +13,9 @@ body{
   font-family: $public-sans;
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100vw;
   min-height: 100vh;
-  padding: 100px 30px;
   box-sizing: border-box;
   font-weight: 300;
   color: $text-default-color;

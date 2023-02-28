@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import "./chat.scss"
-import { BsThreeDotsVertical } from "react-icons/bs"
+import { AiOutlineClose } from "react-icons/ai"
 import Messages from "./Messages"
 import Send from "./Send"
 import { ChatContext } from "../context/ChatContext"
@@ -9,7 +9,7 @@ const Chat = () => {
   const { data, dispatch } = useContext(ChatContext)
 
   const handleCloseChat = () => {
-    dispatch({ type: "CLEAR_USER"})
+    dispatch({ type: "CLEAR_USER" })
   }
 
   return (
@@ -26,11 +26,17 @@ const Chat = () => {
           )}
         </div>
 
-        <div className="others">
-          <div className="button-icons" onClick={handleCloseChat}>
-            <BsThreeDotsVertical />
+        {data.chatId !== "null" && (
+          <div className="others">
+            <div
+              style={{ cursor: "pointer" }}
+              className="button-icons"
+              onClick={handleCloseChat}
+            >
+              Close
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       <Messages />

@@ -3,13 +3,17 @@ import React, { useContext } from "react"
 import { AuthContext } from "../context/AuthContext"
 import { auth } from "../firebase/initializeFirebase"
 import "./navbar.scss"
+import { ChatContext } from "../context/ChatContext"
 
 const Navbar = () => {
   const { currentUser } = useContext(AuthContext)
+  const { dispatch } = useContext(ChatContext)
 
   const handleLogout = () => {
     //logging out the current user in the application
+    dispatch({ type: "CLEAR_USER" })
     signOut(auth)
+    
   }
 
   return (
