@@ -3,7 +3,7 @@ import { doc, onSnapshot } from "firebase/firestore"
 import { db } from "../firebase/initializeFirebase"
 import "./userchatfriends.scss"
 import { AuthContext } from "../context/AuthContext"
-import { displayChatTime } from "../function/displayChatTime"
+import { displayChatTime } from "../hooks/useDisplayChatTime"
 import { ChatContext } from "../context/ChatContext"
 
 const UserChatFriends = () => {
@@ -13,11 +13,12 @@ const UserChatFriends = () => {
 
   useEffect(() => {
     const getFriends = () => {
-      const unsub = setTimeout(() => {
-        onSnapshot(doc(db, "userFriends", currentUser.uid), (doc) => {
+      const unsub = onSnapshot(
+        doc(db, "userFriends", currentUser.uid),
+        (doc) => {
           setFriends(doc.data())
-        })
-      }, 500)
+        }
+      )
 
       return () => {
         unsub()

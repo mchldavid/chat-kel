@@ -59,4 +59,34 @@
       }
     }
   }
+
+  .preview-container {
+    display: flex;
+    position: relative;
+
+    #prvImg {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 5px;
+      background-color: $gray-0;
+    }
+
+    & button {
+      border-color: white;
+      border-width: 2px;
+      font-weight: 900;
+      right: -5px;
+      top: -5px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      padding: 0;
+      height: 15px;
+      width: 15px;
+      background-color: #FF5058;
+    }
+  }
 }

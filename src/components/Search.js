@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react"
+import React, { useState, useContext } from "react"
 import "./search.scss"
 import { BiSearch } from "react-icons/bi"
 import {
@@ -15,11 +15,16 @@ import {
 
 import { db } from "../firebase/initializeFirebase"
 import { AuthContext } from "../context/AuthContext"
+import debounce from "../hooks/useDebounce"
 
 const Search = () => {
   const [searchText, setSearchText] = useState("")
   const [queryResults, setQueryResults] = useState(null)
   const { currentUser } = useContext(AuthContext)
+
+  const updateDebounce = debounce(text => {
+    handleSearch(text)
+  })
 
   const handleSearch = async (text) => {
     const usersRef = collection(db, "users")
@@ -73,9 +78,9 @@ const Search = () => {
     setSearchText("")
   }
 
-  useEffect(() => {
-    handleSearch(searchText)
-  }, [searchText])
+  // useEffect(() => {
+  //   handleSearch(searchText)
+  // }, [searchText])
 
   return (
     <div className="search card">
@@ -84,7 +89,10 @@ const Search = () => {
         <input
           type="text"
           placeholder="Search"
-          onChange={(e) => setSearchText(e.target.value)}
+          onChange={(e) => {
+            setSearchText(e.target.value)
+            updateDebounce(e.target.value)
+          }}
           value={searchText}
         />
       </div>
