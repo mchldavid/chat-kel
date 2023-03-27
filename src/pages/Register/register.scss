@@ -64,6 +64,14 @@
       button{
         margin-top: 20px;
       }
+
+      .profile-container{
+        margin-top: 15px;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
 
     span {

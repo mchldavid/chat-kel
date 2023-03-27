@@ -8,9 +8,12 @@ const Message = (props) => {
   const ref = useRef()
 
   useEffect(() => {
-    ref.current?.scrollIntoView({
-      behavior: "smooth",
-    })
+    setTimeout(() => {
+      ref.current?.scrollIntoView({
+        behavior: "smooth",
+      })
+    }, 500);
+    
   }, [props.message])
 
   return (
