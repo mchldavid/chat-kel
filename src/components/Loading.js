@@ -18,7 +18,7 @@ const LoadingScreen = (props) => {
       }}
     >
       <GridLoader
-        color="rgba(196,224,7,.6)"
+        color="#00cdac"
         speedMultiplier={1.5}
         width={1}
         loading={props.isLoading}

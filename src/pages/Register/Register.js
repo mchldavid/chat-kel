@@ -9,6 +9,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"
 import { doc, setDoc } from "firebase/firestore"
 import { v4 as uuid } from "uuid"
 import LoadingScreen from "../../components/Loading"
+import Logo from "../../components/Logo"
 
 const Register = () => {
   const [err, setErr] = useState({ isError: false, message: "" })
@@ -112,7 +113,7 @@ const Register = () => {
     <div className="register">
       <div className="wrapper">
         <div className="title">
-          <h1>Register to Chat-kel</h1>
+          <h1>Register to <Logo/></h1>
         </div>
         <form
           onSubmit={(e) => {

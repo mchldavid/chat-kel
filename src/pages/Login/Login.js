@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "../../firebase/initializeFirebase"
 import LoadingScreen from "../../components/Loading"
+import Logo from "../../components/Logo"
 
 
 const Login = () => {
@@ -37,7 +38,9 @@ const Login = () => {
     <div className="login">
       <div className="wrapper">
         <div className="title">
-          <h1>Welcome to ChatKel</h1>
+          <h1>
+            Welcome to <Logo />
+          </h1>
         </div>
         <form onSubmit={handleLogin}>
           <label htmlFor="email">Email</label>
