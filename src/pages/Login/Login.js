@@ -5,12 +5,17 @@ import { Link, useNavigate } from "react-router-dom"
 //firebase
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "../../firebase/initializeFirebase"
+import LoadingScreen from "../../components/Loading"
+
 
 const Login = () => {
   const navigate = useNavigate()
   const [err, setErr] = useState({ isError: false, message: "" })
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleLogin = async (e) => {
+    setIsLoading(true)
+    setErr({ ...err, isError: false, message: "" })
     e.preventDefault()
     const email = e.target[0].value
     const password = e.target[1].value
@@ -23,7 +28,8 @@ const Login = () => {
         // ...
       })
       .catch((error) => {
-        setErr({...err, isError: true, message: error.message})
+        setErr({ ...err, isError: true, message: "Incorrect Credentials" })
+        setIsLoading(false)
       })
   }
 
@@ -50,11 +56,13 @@ const Login = () => {
           />
           <button className="button-primary">Sign In</button>
         </form>
-        {err.isError && <span>{err.message}</span>}
+        {err.isError && <span style={{ color: "red" }}>{err.message}</span>}
         <span>
           You don't have an account? <Link to="/register">Register</Link>
         </span>
       </div>
+
+      <LoadingScreen isLoading={isLoading} />
     </div>
   )
 }

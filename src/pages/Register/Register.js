@@ -8,11 +8,13 @@ import { auth, storage, db } from "../../firebase/initializeFirebase"
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"
 import { doc, setDoc } from "firebase/firestore"
 import { v4 as uuid } from "uuid"
+import LoadingScreen from "../../components/Loading"
 
 const Register = () => {
   const [err, setErr] = useState({ isError: false, message: "" })
   const navigate = useNavigate()
   const [defaultDPURL, setdefaultDPURL] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   const getDefaultPhoto = () => {
     function toDataUrl(url, callback) {
@@ -64,6 +66,8 @@ const Register = () => {
     const email = e.target[1].value
     const password = e.target[2].value
     var file = e.target[3].files[0]
+    setIsLoading(true)
+    setErr({ ...err, isError: false, message: "" })
 
     try {
       //create firebase auth sign in
@@ -99,7 +103,8 @@ const Register = () => {
         })
       })
     } catch (error) {
-      setErr({ ...err, isError: true, message: error.message })
+      setErr({ ...err, isError: true, message: "Invalid Data" })
+      setIsLoading(true)
     }
   }
 
@@ -165,11 +170,13 @@ const Register = () => {
 
           <button className="button-primary"> Sign Up</button>
         </form>
-        {err.isError && <span>{err.message}</span>}
+        {err.isError && <span style={{ color: "red" }}>{err.message}</span>}
         <span>
           Already have an account? <Link to="/login">Login</Link>
         </span>
       </div>
+
+      <LoadingScreen isLoading={isLoading} />
     </div>
   )
 }
