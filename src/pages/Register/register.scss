@@ -7,6 +7,11 @@
   box-sizing: border-box;
   width: 500px;
 
+  @include mobile {
+    width: 100vw;
+    height: 100vh;
+  }
+
   .wrapper {
     display: flex;
     gap: 15px;
@@ -16,16 +21,27 @@
     background-color: $bg-color-1;
     border-radius: $radius-card;
 
+    @include mobile {
+      width: 100vw;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0px;
+      padding: clamp(1.25rem, -5.875rem + 30vw, 3.125rem);
+    }
+
     .title {
       display: flex;
       justify-content: center;
       margin-bottom: 25px;
       font-weight: 700;
       color: $text-primary-color;
+      text-align: center;
     }
     form {
       display: flex;
       flex-direction: column;
+      width: 100%;
 
       .upload-button{
         margin-top: 10px;
