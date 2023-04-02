@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import { Routes, Route, Navigate, HashRouter} from "react-router-dom"
 
 //pages
 import Register from "./pages/Register/"
@@ -13,7 +13,7 @@ function App() {
   //protected route to prevent an unauthorized user
   const AuthenticatedRoute = ({ children }) => {
     if (!currentUser) {
-      return <Navigate to="/chat-kel/login" />
+      return <Navigate to="/login" />
     }
 
     return children
@@ -21,20 +21,20 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route
-            path="/chat-kel"
+            index
             element={
               <AuthenticatedRoute>
                 <Home />
               </AuthenticatedRoute>
             }
           ></Route>
-          <Route path="/chat-kel/login" element={<Login />} />
-          <Route path="/chat-kel/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   )
 }

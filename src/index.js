@@ -8,10 +8,10 @@ import "./global/index.scss"
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
   <React.StrictMode>
-    <AuthContextProvider>
-      <ChatContextProvider>
-        <App />
-      </ChatContextProvider>
-    </AuthContextProvider>
+      <AuthContextProvider>
+        <ChatContextProvider>
+          <App />
+        </ChatContextProvider>
+      </AuthContextProvider>
   </React.StrictMode>
 )

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import "./register.scss"
 import { Link, useNavigate } from "react-router-dom"
+import profilePhoto from "../../img/defaultProfilePhoto.jpg"
 
 //firebase
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
@@ -45,7 +46,7 @@ const Register = () => {
     }
 
     toDataUrl(
-      window.location.origin + "/img/defaultProfilePhoto.jpg",
+      profilePhoto,
       function (myBase64) {
         setdefaultDPURL(dataURLtoFile(myBase64, "defaultProfilePhotos.jpg"))
       }
@@ -147,7 +148,7 @@ const Register = () => {
           <div className="profile-container">
             <img
               id="prvImg"
-              src={window.location.origin + "/img/defaultProfilePhoto.jpg"}
+              src={profilePhoto}
               alt="preview img"
               style={{
                 width: "100px",
