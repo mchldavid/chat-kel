@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/chat-kel/static/css/main.9452367f.css",
-    "main.js": "/chat-kel/static/js/main.000943cb.js",
-    "index.html": "/chat-kel/index.html",
-    "main.9452367f.css.map": "/chat-kel/static/css/main.9452367f.css.map",
-    "main.000943cb.js.map": "/chat-kel/static/js/main.000943cb.js.map"
+    "main.css": "/static/css/main.9452367f.css",
+    "main.js": "/static/js/main.3517e4a0.js",
+    "index.html": "/index.html",
+    "main.9452367f.css.map": "/static/css/main.9452367f.css.map",
+    "main.3517e4a0.js.map": "/static/js/main.3517e4a0.js.map"
   },
   "entrypoints": [
     "static/css/main.9452367f.css",
-    "static/js/main.000943cb.js"
+    "static/js/main.3517e4a0.js"
   ]
 }
