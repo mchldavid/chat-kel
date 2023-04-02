@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react"
+import React, { useContext, useState } from "react"
 import "./send.scss"
 import { RiSendPlaneLine } from "react-icons/ri"
 import { BiImageAlt } from "react-icons/bi"
