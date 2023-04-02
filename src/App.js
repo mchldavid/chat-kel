@@ -13,7 +13,7 @@ function App() {
   //protected route to prevent an unauthorized user
   const AuthenticatedRoute = ({ children }) => {
     if (!currentUser) {
-      return <Navigate to="/login" />
+      return <Navigate to="/chat-kel/login" />
     }
 
     return children
@@ -24,15 +24,15 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
-            index
+            path="/chat-kel"
             element={
               <AuthenticatedRoute>
                 <Home />
               </AuthenticatedRoute>
             }
-          />
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
+          ></Route>
+          <Route path="/chat-kel/login" element={<Login />} />
+          <Route path="/chat-kel/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </div>

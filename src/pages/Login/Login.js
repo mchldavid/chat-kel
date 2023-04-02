@@ -25,7 +25,7 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in
         // const user = userCredential.user
-        navigate("/")
+        navigate("/chat-kel")
         // ...
       })
       .catch((error) => {
