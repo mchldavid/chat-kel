@@ -12,8 +12,7 @@ const Message = (props) => {
       ref.current?.scrollIntoView({
         behavior: "smooth",
       })
-    }, 500);
-    
+    }, 500)
   }, [props.message])
 
   return (
@@ -23,7 +22,11 @@ const Message = (props) => {
       </div>
       <div className="content">
         {props.message && <p>{props.message}</p>}
-        {props.file && <img src={props.file} alt="" />}
+        {props.file && (
+          <a href={props.file}>
+            <img src={props.file} alt="" />
+          </a>
+        )}
       </div>
       <div ref={ref}></div>
     </div>
