@@ -12,7 +12,7 @@ const Chat = () => {
   }
 
   return (
-    <div className="chat card">
+    <div className="chat card" aria-expanded="false">
       {data.chatId !== "null" ? (
         <>
           <div className="chat-header">

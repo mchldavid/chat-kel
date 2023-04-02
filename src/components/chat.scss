@@ -35,4 +35,19 @@
     align-items: center;
     justify-content: center;
   }
+
+  @include mobile{
+    transition: all 100ms ease;
+    width: 100vw;
+    position: absolute;
+  }
+}
+
+@include mobile{
+  .chat[aria-expanded="true"]{
+    left: 0vw;
+  }
+  .chat[aria-expanded="false"]{
+    left: 100vw;
+  }
 }

@@ -6,7 +6,7 @@ import UserChatFriends from "./UserChatFriends"
 
 const Sidebar = () => {
   return (
-    <div className="sidebar">
+    <div className="sidebar" aria-expanded="true">
       <Search />
       <UserChatFriends />
       <Navbar />
