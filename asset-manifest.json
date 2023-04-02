@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/chat-kel/static/css/main.9452367f.css",
+    "main.js": "/chat-kel/static/js/main.000943cb.js",
+    "index.html": "/chat-kel/index.html",
+    "main.9452367f.css.map": "/chat-kel/static/css/main.9452367f.css.map",
+    "main.000943cb.js.map": "/chat-kel/static/js/main.000943cb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9452367f.css",
+    "static/js/main.000943cb.js"
+  ]
+}
